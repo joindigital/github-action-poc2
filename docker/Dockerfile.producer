@@ -1,0 +1,14 @@
+# Use the official Golang image as the base image
+FROM golang:1.20
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the Go code into the container
+COPY src/go/producer/main.go .
+
+# Build the Go code
+RUN go build -o main main.go
+
+# Specify the command to run the compiled binary
+CMD ["./main"]
